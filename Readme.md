@@ -1,31 +1,31 @@
 # XPTOTel FaleMais API
 
-## Descrição
+## DescriÃ§Ã£o
 
-API para cálculo de tarifas de telefonia com planos FaleMais, implementada em C# (.NET 8) seguindo Clean Architecture, CQRS, autenticação JWT e repositórios in-memory.
+API para cÃ¡lculo de tarifas de telefonia com planos FaleMais, implementada em C# (.NET 8) seguindo Clean Architecture, CQRS, autenticaÃ§Ã£o JWT e repositÃ³rios in-memory.
 
 ---
 
 ## Estrutura do Projeto
 
-- **XPTOTel.Domain**: Entidades e interfaces do domínio.
-- **XPTOTel.Application**: Serviços e lógica de aplicação.
-- **XPTOTel.Infrastructure**: Implementação dos repositórios in-memory.
-- **XPTOTel.API**: API REST com autenticação JWT e autorização por roles.
-- **tests/XPTOTel.Application.Tests**: Testes unitários com XUnit e Moq.
+- **XPTOTel.Domain**: Entidades e interfaces do domÃ­nio.
+- **XPTOTel.Application**: ServiÃ§os e lÃ³gica de aplicaÃ§Ã£o.
+- **XPTOTel.Infrastructure**: ImplementaÃ§Ã£o dos repositÃ³rios in-memory.
+- **XPTOTel.API**: API REST com autenticaÃ§Ã£o JWT e autorizaÃ§Ã£o por roles.
+- **tests/XPTOTel.Application.Tests**: Testes unitÃ¡rios com XUnit e Moq.
 
 ---
 
 ## Requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- Editor de código (Visual Studio, VS Code, Rider, etc.)
+- Editor de cÃ³digo (Visual Studio, VS Code, Rider, etc.)
 
 ---
 
 ## Como executar
 
-### 1. Clonar o repositório
+### 1. Clonar o repositÃ³rio
 
 ```bash
 git clone https://seu-repositorio.git
@@ -38,7 +38,7 @@ Copy code
 dotnet restore
 dotnet build
 3. Rodar a API
-Navegue até a pasta do projeto API e execute:
+Navegue atÃ© a pasta do projeto API e execute:
 
 bash
 
@@ -46,12 +46,12 @@ Run
 Copy code
 cd src/XPTOTel.API
 dotnet run
-A API estará disponível em:
+A API estarÃ¡ disponÃ­vel em:
 
 https://localhost:5001 (HTTPS)
 http://localhost:5000 (HTTP)
 Endpoints principais
-Autenticação
+AutenticaÃ§Ã£o
 POST /api/auth/login
 
 Body JSON:
@@ -66,7 +66,7 @@ Download code
 ...
 Retorna token JWT para usar nos demais endpoints.
 
-Cálculo de tarifa
+CÃ¡lculo de tarifa
 POST /api/calculo
 
 Header:
@@ -96,7 +96,7 @@ Download code
 "comFaleMais": 0,
 ...
 Testes
-1. Navegar até a pasta de testes
+1. Navegar atÃ© a pasta de testes
 bash
 
 Run
@@ -108,18 +108,18 @@ bash
 Run
 Copy code
 dotnet test
-Você verá o resultado dos testes no console.
+VocÃª verÃ¡ o resultado dos testes no console.
 
-Configurações importantes
-A chave secreta JWT está configurada no Program.cs (exemplo: "SuaChaveSecretaSuperSecreta123!").
-Em produção, use variáveis de ambiente ou appsettings.json para armazenar com segurança.
+ConfiguraÃ§Ãµes importantes
+A chave secreta JWT estÃ¡ configurada no Program.cs (exemplo: "SuaChaveSecretaSuperSecreta123!").
+Em produÃ§Ã£o, use variÃ¡veis de ambiente ou appsettings.json para armazenar com seguranÃ§a.
 
-Os repositórios são in-memory, ou seja, os dados não persistem após reiniciar a aplicação.
+Os repositÃ³rios sÃ£o in-memory, ou seja, os dados nÃ£o persistem apÃ³s reiniciar a aplicaÃ§Ã£o.
 
-Usuários, planos e tarifas podem ser pré-cadastrados no startup para facilitar testes.
+UsuÃ¡rios, planos e tarifas podem ser prÃ©-cadastrados no startup para facilitar testes.
 
-Como adicionar usuários e planos para teste
-No Program.cs ou em um serviço de inicialização, você pode adicionar dados assim:
+Como adicionar usuÃ¡rios e planos para teste
+No Program.cs ou em um serviÃ§o de inicializaÃ§Ã£o, vocÃª pode adicionar dados assim:
 
 csharp
 9 lines
@@ -129,12 +129,8 @@ Download code
 var userRepo = app.Services.GetRequiredService<IUser Repository>();
 await userRepo.AddAsync(new User("admin", "senha", UserRole.Admin));
 ...
-Referências
-Documentação .NET 8
-Autenticação JWT no ASP.NET Core
+ReferÃªncias
+DocumentaÃ§Ã£o .NET 8
+AutenticaÃ§Ã£o JWT no ASP.NET Core
 XUnit
 Moq
-Contato
-Para dúvidas ou sugestões, abra uma issue no repositório ou envie um e-mail para: seu.email@exemplo.com
-
-Boa codificação!
