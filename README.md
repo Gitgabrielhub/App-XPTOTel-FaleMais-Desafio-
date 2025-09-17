@@ -1,25 +1,25 @@
 # XPTOTel FaleMais API
 
-## Descri��o
+## Descrição
 
-API para c�lculo de tarifas de telefonia com planos FaleMais, implementada em C# (.NET 8) seguindo Clean Architecture, CQRS, autentica��o JWT e reposit�rios in-memory.
+API para cálculo de tarifas de telefonia com planos FaleMais, implementada em C# (.NET 8) seguindo Clean Architecture, CQRS, autenticação JWT e repositórios in-memory.
 
 ---
 
 ## Estrutura do Projeto
 
-- **XPTOTel.Domain**: Entidades e interfaces do dom�nio.
-- **XPTOTel.Application**: Servi�os e l�gica de aplica��o.
-- **XPTOTel.Infrastructure**: Implementa��o dos reposit�rios in-memory.
-- **XPTOTel.API**: API REST com autentica��o JWT e autoriza��o por roles.
-- **tests/XPTOTel.Application.Tests**: Testes unit�rios com XUnit e Moq.
+- **XPTOTel.Domain**: Entidades e interfaces do domínio.
+- **XPTOTel.Application**: Serviços e lógica de aplicação.
+- **XPTOTel.Infrastructure**: Implementação dos repositórios in-memory.
+- **XPTOTel.API**: API REST com autenticação JWT e autorização por roles.
+- **tests/XPTOTel.Application.Tests**: Testes unitários com XUnit e Moq.
 
 ---
 
 ## Requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- Editor de c�digo (Visual Studio, VS Code, Rider, etc.)
+- Editor de código (Visual Studio, VS Code, Rider, etc.)
 
 ---
 
@@ -38,7 +38,7 @@ Copy code
 dotnet restore
 dotnet build
 3. Rodar a API
-Navegue at� a pasta do projeto API e execute:
+Navegue até a pasta do projeto API e execute:
 
 bash
 
@@ -46,12 +46,12 @@ Run
 Copy code
 cd src/XPTOTel.API
 dotnet run
-A API estar� dispon�vel em:
+A API estará disponível em:
 
 https://localhost:5001 (HTTPS)
 http://localhost:5000 (HTTP)
 Endpoints principais
-Autentica��o
+Autenticação
 POST /api/auth/login
 
 Body JSON:
@@ -66,7 +66,7 @@ Download code
 ...
 Retorna token JWT para usar nos demais endpoints.
 
-C�lculo de tarifa
+Cálculo de tarifa
 POST /api/calculo
 
 Header:
@@ -96,7 +96,7 @@ Download code
 "comFaleMais": 0,
 ...
 Testes
-1. Navegar at� a pasta de testes
+1. Navegar até a pasta de testes
 bash
 
 Run
@@ -108,18 +108,18 @@ bash
 Run
 Copy code
 dotnet test
-Voc� ver� o resultado dos testes no console.
+Você verá o resultado dos testes no console.
 
-Configura��es importantes
-A chave secreta JWT est� configurada no Program.cs (exemplo: "SuaChaveSecretaSuperSecreta123!").
-Em produ��o, use vari�veis de ambiente ou appsettings.json para armazenar com seguran�a.
+Configurações importantes
+A chave secreta JWT está configurada no Program.cs (exemplo: "SuaChaveSecretaSuperSecreta123!").
+Em produção, use variáveis de ambiente ou appsettings.json para armazenar com segurança.
 
-Os reposit�rios s�o in-memory, ou seja, os dados n�o persistem ap�s reiniciar a aplica��o.
+Os repositórios são in-memory, ou seja, os dados não persistem após reiniciar a aplicação.
 
-Usu�rios, planos e tarifas podem ser pr�-cadastrados no startup para facilitar testes.
+Usuários, planos e tarifas podem ser pré-cadastrados no startup para facilitar testes.
 
-Como adicionar usu�rios e planos para teste
-No Program.cs ou em um servi�o de inicializa��o, voc� pode adicionar dados assim:
+Como adicionar usuários e planos para teste
+No Program.cs ou em um serviço de inicialização, você pode adicionar dados assim:
 
 csharp
 9 lines
@@ -129,11 +129,13 @@ Download code
 var userRepo = app.Services.GetRequiredService<IUser Repository>();
 await userRepo.AddAsync(new User("admin", "senha", UserRole.Admin));
 ...
-Refer�ncias
-Documenta��o .NET 8
-Autentica��o JWT no ASP.NET Core
+Referências
+Documentaçãoo .NET 8
+Autenticação JWT no ASP.NET Core
 XUnit
 Moq
 Contato
-Para d�vidas ou sugest�es, abra uma issue no reposit�rio ou envie um e-mail para: seu.email@exemplo.com
+Telefone: (61)999726257
+E-mail: gabrielfonsecapro356@gmail.com
+
 
